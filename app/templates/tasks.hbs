@@ -2,7 +2,7 @@
 <h1>Tasks</h1>
 {{#each model as |task|}}
   <div class="well">
-    <h4>Title: {{task.title}}</h4>
+    <h4>Title: {{#link-to 'tasks.edit' task.id}}{{task.title}}{{/link-to}} <span>(click to edit)</span></h4>
     
     <p>Description: {{task.description}}</p>
     <small>Due: {{format-date task.date}}</small>
