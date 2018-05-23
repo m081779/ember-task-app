@@ -6,10 +6,24 @@ export default Controller.extend({
       let title = this.get('title'),
           date = this.get('date'),
           description = this.get('description');
-          // task = this.store.createRecord();
-        alert(title,date,description);
-      //new task
+       
 
+      //new task
+      let newTask = this.store.createRecord('task', {
+        title: title,
+        description: description,
+        date: new Date(date)
+      });
+
+      //save to database
+      newTask.save();
+
+      //Clear form
+      this.setProperties({
+        title: '',
+        description: '',
+        date: ''
+      });
     }
   }
 });
